@@ -15,30 +15,40 @@ struct ContentView: View {
     VStack {
       Text("Color Picker")
         .font(.largeTitle)
+        .bold()
 
       RoundedRectangle(cornerRadius: 0)
         .foregroundColor(foregroundColor)
-        .border(.black)
+        .border(Color.brown, width: 10)
       VStack {
         Text("Red")
         HStack {
           Slider(value: $redColor, in: 0...255)
+            .accentColor(.red)
           Text("\(Int(redColor.rounded()))")
         }
+        .frame(maxWidth: .infinity, alignment: .center)
+        .padding(.horizontal, 20)
       }
       VStack {
         Text("Green")
         HStack {
           Slider(value: $greenColor, in: 0...255)
+            .accentColor(.green)
           Text("\(Int(greenColor.rounded()))")
         }
+        .frame(maxWidth: .infinity, alignment: .center)
+        .padding(.horizontal, 20)
       }
       VStack {
         Text("Blue")
         HStack {
           Slider(value: $blueColor, in: 0...255)
+            .accentColor(.blue)
           Text("\(Int(blueColor.rounded()))")
         }
+        .frame(maxWidth: .infinity, alignment: .center)
+        .padding(.horizontal, 20)
       }
       Button("Set Color") {
         foregroundColor = Color(red: redColor / 255, green: greenColor / 255, blue: blueColor / 255)
@@ -52,6 +62,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
+    ContentView()
     ContentView()
   }
 }
